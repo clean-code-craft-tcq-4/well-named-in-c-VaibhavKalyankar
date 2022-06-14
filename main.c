@@ -2,6 +2,15 @@
 #include <assert.h>
 #include "PrintManual.h"
 
+void testNumberToPair(int,
+    enum MajorColor,
+    enum MinorColor);
+
+void testPairToNumber(
+    enum MajorColor,
+    enum MinorColor,
+    int);
+
 
 int main() {
     testNumberToPair(4, WHITE, BROWN);
