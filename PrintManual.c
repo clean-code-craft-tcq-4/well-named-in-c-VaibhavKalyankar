@@ -1,4 +1,4 @@
-#include <stdio..h>
+#include <stdio.h>
 #include "PrintManual.h"
 
 void ColorPairToString(const ColorPair* colorPair, char* buffer) {
