@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "PrintManual.h"
+#include "main.h"
 
 int main() {
     int MajorColorValue,MinorColorValue,PairNumber;
