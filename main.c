@@ -58,8 +58,8 @@ int main() {
         for(MinorColorValue=BLUE;MinorColorValue<=SLATE;MinorColorValue++)
         {
             PairNumber++;
-            testNumberToPair(PairNumber, WHITE, BROWN);
-            testPairToNumber(BLACK, ORANGE, PairNumber);
+            testNumberToPair(PairNumber, MajorColorValue, MinorColorValue);
+            testPairToNumber(MajorColorValue, MinorColorValue, PairNumber);
         }
     }
   /*  testNumberToPair(4, WHITE, BROWN);
