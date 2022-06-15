@@ -4,6 +4,8 @@
 
 
 void ColorPairToString(const ColorPair* colorPair, char* buffer) {
+    
+    printf("%s %s\n",MajorColorNames[colorPair->majorColor],MinorColorNames[colorPair->minorColor]);
     sprintf(buffer, "%s %s",
         MajorColorNames[colorPair->majorColor],
         MinorColorNames[colorPair->minorColor]);
@@ -50,11 +52,21 @@ void testPairToNumber(
 }
 
 int main() {
-    testNumberToPair(4, WHITE, BROWN);
+    int MajorColorValue,MinorColorValue,PairNumber;
+    for(MajorColorValue=WHITE;MajorColorValue<=VIOLET;MajorColorValue++)
+    {
+        for(MinorColorValue=BLUE;MinorColorValue<=SLATE;MinorColorValue++)
+        {
+            PairNumber++;
+            testNumberToPair(PairNumber, WHITE, BROWN);
+            testPairToNumber(BLACK, ORANGE, PairNumber);
+        }
+    }
+  /*  testNumberToPair(4, WHITE, BROWN);
     testNumberToPair(5, WHITE, SLATE);
 
     testPairToNumber(BLACK, ORANGE, 12);
     testPairToNumber(VIOLET, SLATE, 25);
-
+*/
     return 0;
 }
