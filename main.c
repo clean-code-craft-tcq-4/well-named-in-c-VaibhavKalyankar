@@ -9,8 +9,8 @@ int main() {
         for(MinorColorValue=BLUE;MinorColorValue<=SLATE;MinorColorValue++)
         {
             PairNumber++;
-            testNumberToPair(PairNumber, MajorColorValue, MinorColorValue);
-            testPairToNumber(MajorColorValue, MinorColorValue, PairNumber);
+            TestNumberToPair(PairNumber, MajorColorValue, MinorColorValue);
+            TestPairToNumber(MajorColorValue, MinorColorValue, PairNumber);
         }
     }
     return 0;
