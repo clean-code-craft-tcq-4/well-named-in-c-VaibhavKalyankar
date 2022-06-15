@@ -1,9 +1,25 @@
 #include <stdio.h>
 #include <assert.h>
 #include "PrintManual.h"
+
+int main() {
+    int MajorColorValue,MinorColorValue,PairNumber;
+    for(MajorColorValue=WHITE;MajorColorValue<=VIOLET;MajorColorValue++)
+    {
+        for(MinorColorValue=BLUE;MinorColorValue<=SLATE;MinorColorValue++)
+        {
+            PairNumber++;
+            testNumberToPair(PairNumber, MajorColorValue, MinorColorValue);
+            testPairToNumber(MajorColorValue, MinorColorValue, PairNumber);
+        }
+    }
+    return 0;
+}
+
 void ColorPairToString(const ColorPair* colorPair, char* buffer) {
     sprintf(buffer, "%s %s",MajorColorNames[colorPair->majorColor],MinorColorNames[colorPair->minorColor]);
 }
+
 ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
     int zeroBasedPairNumber = pairNumber - 1;
@@ -11,7 +27,10 @@ ColorPair GetColorFromPairNumber(int pairNumber) {
     colorPair.minorColor = (enum MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
     return colorPair;
 }
-
+int GetPairNumberFromColor(const colorPair * colorPair)
+{
+    return colorPair->majorColor * numberofMinorColors + colorPair->minorColor + 1;
+}
 void TestNumberToPair(int pairNumber,enum MajorColor expectedMajor,enum MinorColor expectedMinor)
 {
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
@@ -29,17 +48,4 @@ void TestPairToNumber(enum MajorColor major,enum MinorColor minor,int expectedPa
     int pairNumber = GetPairNumberFromColor(&colorPair);
     printf("pair number %d\n", pairNumber);
     assert(pairNumber == expectedPairNumber);
-}
-int main() {
-    int MajorColorValue,MinorColorValue,PairNumber;
-    for(MajorColorValue=WHITE;MajorColorValue<=VIOLET;MajorColorValue++)
-    {
-        for(MinorColorValue=BLUE;MinorColorValue<=SLATE;MinorColorValue++)
-        {
-            PairNumber++;
-            testNumberToPair(PairNumber, MajorColorValue, MinorColorValue);
-            testPairToNumber(MajorColorValue, MinorColorValue, PairNumber);
-        }
-    }
-    return 0;
 }
