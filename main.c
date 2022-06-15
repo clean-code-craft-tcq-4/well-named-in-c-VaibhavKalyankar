@@ -14,7 +14,10 @@ int main() {
     }
     return 0;
 }
-
+void ColorPairToString(const ColorPair* colorpair,char * buffer)
+{
+    sprintf(buffer,"%s %s",MajorColorNames[colorpair->majorColor],MinorColorNames[colorpair->minorColor]);    
+}
 ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
     int zeroBasedPairNumber = pairNumber - 1;
